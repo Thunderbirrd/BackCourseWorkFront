@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form id="register">
+        <div class="container">
+            <input type="text" placeholder="Логин" name="login" required>
+        </div>
+        <br>
+        <div class="container">
+            <input type="password" placeholder="Пароль" name="password" required>
+        </div>
+        <br>
+        <div class="container">
+            <input type="password" placeholder="Повторите пароль" name="password2" required>
+            <br>
+            <div id="errors_reg" style="display: none"><b>Пожалуйста, исправьте следующие ошибки:</b>
+                <ul>
+                    <li id="error"></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <button type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+    <script src="js/main.js"></script>
+</body>
+</html>

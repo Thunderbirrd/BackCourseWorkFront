@@ -1,6 +1,6 @@
 window.onload = async () =>{
   if(document.cookie.indexOf("user") !== -1){
-      window.location = "/surveys.html"
+      window.location = "./surveys.html"
   }
 };
 
@@ -13,12 +13,12 @@ document.getElementById("login").addEventListener("submit", async function(e) {
         login,
         password
     };
-    let response = await fetch("https://back-course-work.herokuapp.com/login", {method: "POST",  headers: {
+    let response = await fetch("http://localhost:8080/login", {method: "POST",  headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify(user)});
-    let result = await response.text();
-    switch (result) {
+    let result = await response.json();
+    switch (result["message"]) {
         case "Wrong login":
             div.style.display = "";
             div.textContent = "Пользователя с таким логином не существует";
@@ -28,8 +28,8 @@ document.getElementById("login").addEventListener("submit", async function(e) {
             div.textContent = "Неправильный пароль";
             break;
         default:
-            document.cookie = result;
-            window.location = "/";
+            document.cookie = "User: " + result["message"].substr(18) + "  Id: " + result["id"];
+            window.location = "./surveys.html";
             break;
     }
 });

@@ -27,9 +27,8 @@ document.getElementById("register").addEventListener("submit", async function(e)
             },
             body: JSON.stringify(user)});
         let result = await response.json();
-        console.log(result)
-        if(result !== ""){
-            window.location = "/";
+        if(result.message === "Successful"){
+            window.location = "./index.html";
         }else{
             div.style.display = "";
             li.textContent = "Пользователь с таким именем уже существует"

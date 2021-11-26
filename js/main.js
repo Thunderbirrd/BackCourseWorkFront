@@ -22,7 +22,7 @@ document.getElementById("register").addEventListener("submit", async function(e)
             login,
             password
         };
-        let response = await fetch("http://localhost:8080/register", {method: "POST",  headers: {
+        let response = await fetch("https://back-course-work.herokuapp.com/register", {method: "POST",  headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(user)});
